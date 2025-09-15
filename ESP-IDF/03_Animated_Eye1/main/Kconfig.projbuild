@@ -1,0 +1,75 @@
+menu "LCD Configuration"
+    config WAVESHARE_1_28INCH_TOUCH_LCD
+        bool "1.28inch Touch LCD"
+        default y
+        help
+            The product is not yet available for sale
+
+    config ENABLE_TOUCH
+        bool "Enable touch screen functionality"
+        default n  
+        depends on WAVESHARE_1_28INCH_TOUCH_LCD  
+        help
+            Enable this option to activate touch screen support (driver initialization and LVGL input registration).
+            Disabled by default.
+    
+    config Round_LCD_screen
+        bool "This LCD is circular"
+        default y
+        depends on WAVESHARE_1_28INCH_TOUCH_LCD
+        help
+            This LCD is circular
+
+    choice DISPLAY_ROTATION_ANGLE
+        prompt "Display Angle"
+        default EXAMPLE_DISPLAY_ROTATION_90_DEGREE
+        help
+            Set the screen rotation Angle(On by default).
+    
+    config EXAMPLE_DISPLAY_ROTATION_0_DEGREE    
+        bool "Set the screen to rotate 0 degrees"
+        help
+            Set the screen to rotate 0 degrees
+    config EXAMPLE_DISPLAY_ROTATION_90_DEGREE    
+        bool "Set the screen to rotate 90 degrees"
+        help
+            Set the screen to rotate 90 degrees 
+    config EXAMPLE_DISPLAY_ROTATION_180_DEGREE  
+        bool "Set the screen to rotate 180 degrees"
+        help
+            Set the screen to rotate 180 degrees 
+    config EXAMPLE_DISPLAY_ROTATION_270_DEGREE  
+        bool "Set the screen to rotate 270 degrees"
+        help
+            Set the screen to rotate 270 degrees
+    endchoice
+
+    # choice LVGL_CONFIGURATION
+    #     prompt "LVGL configuration"
+    #     depends on WAVESHARE_1_28INCH_TOUCH_LCD
+    #     default LV_COLOR_16_SWAP
+    #     help
+    #         Swap the 2 bytes of RGB565 color. Useful if the display has an 8-bit interface.
+    #         - 2.8inch Touch LCD (Disable)
+    
+    # config LV_COLOR_16_SWAP
+    #     bool "Swap the 2 bytes of RGB565 color"
+    #     help
+    #         Swap the 2 bytes of RGB565 color
+    # endchoice
+    
+
+
+    config BT_ENABLED
+        bool "Select this option to enable Bluetooth"
+        default y 
+
+    config BT_BLE_50_FEATURES_SUPPORTED
+        bool "Enabling this option activates BLE 5.0 features"
+        default y 
+        
+    config BT_BLE_42_FEATURES_SUPPORTED
+        bool "This enables BLE 4.2 features."
+        default y 
+    
+endmenu
