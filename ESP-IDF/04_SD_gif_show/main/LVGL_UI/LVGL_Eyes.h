@@ -9,3 +9,4 @@
 #include "esp_check.h" 
 
 void Lvgl_Eyes(void);
+void eyes_next_gif(void);

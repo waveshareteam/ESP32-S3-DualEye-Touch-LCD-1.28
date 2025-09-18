@@ -2,43 +2,43 @@ dependencies:
   chmorgan/esp-audio-player:
     dependencies: []
     source:
-      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player\components\chmorgan__esp-audio-player
+      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player_Touch\components\chmorgan__esp-audio-player
       type: local
     version: 1.0.7
   chmorgan/esp-libhelix-mp3:
     dependencies: []
     source:
-      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player\components\chmorgan__esp-libhelix-mp3
+      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player_Touch\components\chmorgan__esp-libhelix-mp3
       type: local
     version: 1.0.3
   espressif/cmake_utilities:
     dependencies: []
     source:
-      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player\components\espressif__cmake_utilities
+      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player_Touch\components\espressif__cmake_utilities
       type: local
     version: 0.5.3
   espressif/esp-dsp:
     dependencies: []
     source:
-      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player\components\espressif__esp-dsp
+      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player_Touch\components\espressif__esp-dsp
       type: local
     version: 1.4.12
   espressif/esp-sr:
     dependencies: []
     source:
-      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player\components\espressif__esp-sr
+      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player_Touch\components\espressif__esp-sr
       type: local
     version: 1.9.4
   espressif/esp_codec_dev:
     dependencies: []
     source:
-      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player\components\espressif__esp_codec_dev
+      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player_Touch\components\espressif__esp_codec_dev
       type: local
     version: 1.3.4
   espressif/esp_lcd_touch:
     dependencies: []
     source:
-      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player\components\espressif__esp_lcd_touch
+      path: F:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\06_Music_Player_Touch\components\espressif__esp_lcd_touch
       type: local
     version: 1.1.2
   idf:

@@ -7,6 +7,51 @@ static const char *TAG_LVGL = "LVGL";
 lv_disp_draw_buf_t disp_buf,disp_buf2;                                                 // contains internal graphic buffer(s) called draw buffer(s)
 lv_disp_drv_t disp_drv,disp_drv2;                                                      // contains callback functions
 lv_indev_drv_t indev_drv,indev_drv2;
+static StaticSemaphore_t lvgl_mutex_buf;
+static SemaphoreHandle_t lvgl_mutex = NULL;
+
+/**
+ * Initialize the LVGL mutex lock
+ * It should be called before lv_init()
+ */
+void lvgl_port_lock_init(void) {
+    if(lvgl_mutex == NULL) {
+
+        lvgl_mutex = xSemaphoreCreateRecursiveMutexStatic(&lvgl_mutex_buf);
+        if(lvgl_mutex == NULL) {
+            //Serial.println("Failed to create LVGL recursive mutex!");
+        }
+    }
+}
+
+/**
+ * Lock the LVGL operation
+ * @param timeout_ms The timeout period (in milliseconds), where 0 indicates an infinite wait
+ * @return Return true for success and false for failure
+ */
+bool lvgl_port_lock(uint32_t timeout_ms) {
+    if(lvgl_mutex == NULL) return false;
+
+    TickType_t timeout_ticks = (timeout_ms == 0) ? portMAX_DELAY : pdMS_TO_TICKS(timeout_ms);
+    
+    // Recursive locking
+    if(xSemaphoreTakeRecursive(lvgl_mutex, timeout_ticks) == pdTRUE) {
+        return true;
+    } else {
+        //Serial.println("LVGL lock timeout!");
+        return false;
+    }
+}
+
+/**
+ * Unlock the LVGL operation
+ */
+void lvgl_port_unlock(void) {
+    if(lvgl_mutex != NULL) {
+        // Recursive unlocking
+        xSemaphoreGiveRecursive(lvgl_mutex);
+    }
+}
 
 void example_increase_lvgl_tick(void *arg)
 {
@@ -18,8 +63,9 @@ void LVGL_Loop(void *parameter)
 {
     while(1)
     {
-        // The task running lv_timer_handler should have lower priority than that running `lv_tick_inc`
-        lv_timer_handler();
+        lvgl_port_lock(0);
+        lv_timer_handler(); /* let the GUI do its work */
+        lvgl_port_unlock();
         vTaskDelay(pdMS_TO_TICKS(10));
     }
     vTaskDelete(NULL);
@@ -95,6 +141,7 @@ lv_disp_t *disp;
 lv_disp_t *disp2;
 void LVGL_Init(void)
 {
+    lvgl_port_lock_init();
     ESP_LOGI(TAG_LVGL, "Initialize LVGL library");
     lv_init();
     
@@ -102,7 +149,7 @@ void LVGL_Init(void)
     assert(buf1);
     lv_color_t *buf2 = heap_caps_malloc(LVGL_BUF_LEN * sizeof(lv_color_t) , MALLOC_CAP_SPIRAM);    
     assert(buf2);
-    lv_disp_draw_buf_init(&disp_buf, buf1, buf2, LVGL_BUF_LEN );    
+    lv_disp_draw_buf_init(&disp_buf, buf1, buf2, LVGL_BUF_LEN );  
     
     lv_color_t *buf3 = heap_caps_malloc(LVGL_BUF_LEN * sizeof(lv_color_t), MALLOC_CAP_SPIRAM); // MALLOC_CAP_DMA  MALLOC_CAP_SPIRAM
     assert(buf3);
@@ -166,12 +213,13 @@ void LVGL_Init(void)
     
 
 }
+
 void LVGL_Start(void){
 
     xTaskCreatePinnedToCore(
         LVGL_Loop, 
         "LVGL Driver task",
-        4096, 
+        8192, 
         NULL, 
         2, 
         NULL, 

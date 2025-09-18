@@ -10,6 +10,9 @@
 
 #include "LCD_Driver.h"
 #include "Touch_Driver.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/semphr.h"
 
 // #define LVGL_BUF_LEN  (EXAMPLE_LCD_WIDTH * 3)
 #define LVGL_BUF_LEN  (EXAMPLE_LCD_WIDTH * 10)
@@ -27,3 +30,6 @@ void example_increase_lvgl_tick(void *arg);
 
 void LVGL_Init(void);                     // Call this function to initialize the screen (must be called in the main function) !!!!!
 void LVGL_Start(void);
+
+bool lvgl_port_lock(uint32_t timeout_ms);
+void lvgl_port_unlock(void);

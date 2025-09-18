@@ -1,14 +1,18 @@
 dependencies:
   espressif/cmake_utilities:
-    dependencies: []
+    component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.1'
     source:
-      path: E:\ESP32-S3-DualEye-Touch-LCD-1.28-Demo\ESP-IDF\01_Text_Number\components\espressif__cmake_utilities
-      type: local
+      registry_url: https://components.espressif.com/
+      type: service
     version: 0.5.3
   espressif/esp_lcd_touch:
     dependencies: []
     source:
-      path: E:\ESP32-S3-DualEye-Touch-LCD-1.28-Demo\ESP-IDF\01_Text_Number\components\espressif__esp_lcd_touch
+      path: E:\ESP32-S3-DualEye-LCD-1.28-Demo\ESP-IDF\01_Text_Number\components\espressif__esp_lcd_touch
       type: local
     version: 1.1.2
   idf:
@@ -27,6 +31,6 @@ direct_dependencies:
 - espressif/esp_lcd_touch
 - idf
 - lvgl/lvgl
-manifest_hash: 9e067bdcff60ae83ac27a306e320c2cda70e1b4f8e9f0d87a32e28202978e40b
+manifest_hash: 9b52301033a82961f9cf44e1a2a57803c2c220f4c8b3647bdeda285fb38e743c
 target: esp32s3
 version: 2.0.0

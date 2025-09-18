@@ -2,6 +2,7 @@
 #include "sdkconfig.h"
 #include "GC9A01A.h"
 
+#include "Touch_Driver.h"
 #include "driver/ledc.h"
 
 #define LEDC_HS_TIMER          LEDC_TIMER_0

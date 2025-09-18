@@ -4,14 +4,6 @@ menu "LCD Configuration"
         default y
         help
             The product is not yet available for sale
-            
-    config ENABLE_TOUCH
-        bool "Enable touch screen functionality"
-        default n  
-        depends on WAVESHARE_1_28INCH_TOUCH_LCD  
-        help
-            Enable this option to activate touch screen support (driver initialization and LVGL input registration).
-            Disabled by default.
 
     config Round_LCD_screen
         bool "This LCD is circular"

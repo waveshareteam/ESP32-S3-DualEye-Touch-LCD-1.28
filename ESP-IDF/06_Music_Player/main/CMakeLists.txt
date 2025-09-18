@@ -2,6 +2,7 @@
 set(SOURCES
     "./main.c"
     "./LCD_Driver/LCD_Driver.c"
+    "./Touch_Driver/Touch_Driver.c"
     "./Audio_Driver/Audio_Driver.c" 
     "./MIC_Driver/MIC_Speech.c" 
     "./LVGL_Driver/LVGL_Driver.c"
@@ -22,7 +23,8 @@ set(SOURCES
 )
 
 set(INCLUDE_DIRS 
-    "./LCD_Driver"   
+    "./LCD_Driver"
+    "./Touch_Driver"   
     "./Audio_Driver" 
     "./MIC_Driver" 
     "./LVGL_Driver" 
@@ -42,9 +44,11 @@ set(INCLUDE_DIRS
 if(CONFIG_WAVESHARE_1_28INCH_TOUCH_LCD)
     list(APPEND SOURCES 
         "./LCD_Driver/GC9A01A/GC9A01A.c"
+        "./Touch_Driver/CST816/CST816.c"
     )
     list(APPEND INCLUDE_DIRS
         "./LCD_Driver/GC9A01A"
+        "./Touch_Driver/CST816"
     )
 endif()
 

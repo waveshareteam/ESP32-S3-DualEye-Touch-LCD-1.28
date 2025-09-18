@@ -1,14 +1,32 @@
 dependencies:
-  espressif/cmake_utilities:
-    dependencies: []
+  espressif/button:
+    component_hash: f53face2ab21fa0ffaf4cf0f6e513d393f56df6586bb2ad1146120f03f19ee05
+    dependencies:
+    - name: espressif/cmake_utilities
+      registry_url: https://components.espressif.com
+      require: private
+      version: '*'
+    - name: idf
+      require: private
+      version: '>=4.0'
     source:
-      path: E:\ESP32-S3-DualEye-Touch-LCD-1.28-Demo\ESP-IDF\04_SD_gif_show\components\espressif__cmake_utilities
-      type: local
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 4.1.3
+  espressif/cmake_utilities:
+    component_hash: 351350613ceafba240b761b4ea991e0f231ac7a9f59a9ee901f751bddc0bb18f
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.1'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
     version: 0.5.3
   espressif/esp_lcd_touch:
     dependencies: []
     source:
-      path: E:\ESP32-S3-DualEye-Touch-LCD-1.28-Demo\ESP-IDF\04_SD_gif_show\components\espressif__esp_lcd_touch
+      path: C:\Users\ad\Desktop\04_SD_gif_show\components\espressif__esp_lcd_touch
       type: local
     version: 1.1.2
   idf:
@@ -23,10 +41,11 @@ dependencies:
       type: service
     version: 8.3.11
 direct_dependencies:
+- espressif/button
 - espressif/cmake_utilities
 - espressif/esp_lcd_touch
 - idf
 - lvgl/lvgl
-manifest_hash: a2dd7e8909fc61b1b6146853568ae6075a64c52333b68ab378f23dbc812713f9
+manifest_hash: 0c5fe109c9dbc95be649135b8d7eb36d7d1cf9bd652273c25df38f82c922b39e
 target: esp32s3
 version: 2.0.0

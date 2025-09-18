@@ -1,5 +1,4 @@
 {
-  "idf.portWin": "COM3",
   "idf.openOcdConfigs": [
     "board/esp32s3-builtin.cfg"
   ],
@@ -10,14 +9,14 @@
   "clangd.arguments": [
     "--background-index",
     "--query-driver=d:\\esp\\tools\\xtensa-esp-elf\\esp-14.2.0_20241119\\xtensa-esp-elf\\bin\\xtensa-esp32s3-elf-gcc.exe",
-    "--compile-commands-dir=f:\\ESP-IDF\\ESP32-S3-DualEye-Touch-LCD-1.28-Test\\build"
+    "--compile-commands-dir=f:\\ESP32-S3-DualEye-Touch-LCD-1.28-Test\\build"
   ],
+  "idf.portWin": "COM3",
   "idf.flashType": "UART",
   "files.associations": {
-    "lv_gif.h": "c",
-    "esp_log.h": "c",
-    "lvgl.h": "c",
-    "lvgl_driver.h": "c",
-    "lv_gpu_d2_ra6m3.h": "c"
+    "audio_driver.h": "c",
+    "lvgl_eyes.h": "c",
+    "mic_speech.h": "c",
+    "esp_codec_dev_defaults.h": "c"
   }
 }

@@ -3,9 +3,7 @@
 void LCD_INIT() {  
   LCD_Init();
   LCD2_Init();
-#if CONFIG_ENABLE_TOUCH
-    TOUCH_INIT();
-#endif
+//TOUCH_INIT();
   Backlight1_Init();
   Backlight2_Init();
 }

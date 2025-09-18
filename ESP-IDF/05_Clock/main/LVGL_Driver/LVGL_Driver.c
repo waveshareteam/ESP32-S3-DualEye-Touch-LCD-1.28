@@ -136,21 +136,20 @@ void LVGL_Init(void)
     
     /********************* LVGL TouchPad*********************/
     // Register touch input devices only when touch is enabled
-#if CONFIG_ENABLE_TOUCH
-    lv_indev_drv_init(&indev_drv);
-    indev_drv.type = LV_INDEV_TYPE_POINTER;
-    indev_drv.disp = disp;
-    indev_drv.read_cb = example_touchpad_read;
-    indev_drv.user_data = tp;
-    lv_indev_drv_register(&indev_drv);
 
-    lv_indev_drv_init(&indev_drv2);
-    indev_drv2.type = LV_INDEV_TYPE_POINTER;
-    indev_drv2.disp = disp2;
-    indev_drv2.read_cb = example_touchpad_read;
-    indev_drv2.user_data = tp2;
-    lv_indev_drv_register(&indev_drv2);
-#endif
+    // lv_indev_drv_init(&indev_drv);
+    // indev_drv.type = LV_INDEV_TYPE_POINTER;
+    // indev_drv.disp = disp;
+    // indev_drv.read_cb = example_touchpad_read;
+    // indev_drv.user_data = tp;
+    // lv_indev_drv_register(&indev_drv);
+
+    // lv_indev_drv_init(&indev_drv2);
+    // indev_drv2.type = LV_INDEV_TYPE_POINTER;
+    // indev_drv2.disp = disp2;
+    // indev_drv2.read_cb = example_touchpad_read;
+    // indev_drv2.user_data = tp2;
+    // lv_indev_drv_register(&indev_drv2);
 
     /********************* LVGL *********************/
     ESP_LOGI(TAG_LVGL, "Install LVGL tick timer");
