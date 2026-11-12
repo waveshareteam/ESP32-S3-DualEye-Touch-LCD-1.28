@@ -1,0 +1,12 @@
+{
+    "manufacturer": "waveshare",
+    "type": "esp32-c6-epaper-1.54",
+    "target": "esp32c6",
+    "builds": [
+        {
+            "name": "esp32-c6-epaper-1.54",
+            "sdkconfig_append": [
+            ]
+        }
+    ]
+}
