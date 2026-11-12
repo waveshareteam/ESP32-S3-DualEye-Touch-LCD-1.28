@@ -12,5 +12,29 @@
   "arduino": {
     "core": "3.2.0",
     "fqbn": "esp32:esp32:esp32s3:FlashSize=16M,FlashMode=qio120,PartitionScheme=esp_sr_16,PSRAM=opi,EventsCore=0,USBMode=hwcdc,CDCOnBoot=default"
+  },
+  "overrides": {
+    "markdown_audit": {
+      "classification_rules": [
+        {
+          "category": "embedded_upstream",
+          "patterns": [
+            "examples/esp-idf/LCD_06_Music_Player/components/chmorgan__esp-libhelix-mp3/**"
+          ]
+        },
+        {
+          "category": "embedded_upstream",
+          "patterns": [
+            "examples/esp-idf/Touch_01_Text_Number/components/espressif__esp-dsp/**"
+          ]
+        },
+        {
+          "category": "third_party",
+          "patterns": [
+            "examples/arduino/reference/touch-libraries/**"
+          ]
+        }
+      ]
+    }
   }
 }
