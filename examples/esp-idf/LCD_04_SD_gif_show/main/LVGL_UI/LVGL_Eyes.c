@@ -1,4 +1,4 @@
-#include "Lvgl_Eyes.h"
+#include "LVGL_Eyes.h"
 #include <dirent.h>
 #include <string.h>
 #include "esp_log.h"

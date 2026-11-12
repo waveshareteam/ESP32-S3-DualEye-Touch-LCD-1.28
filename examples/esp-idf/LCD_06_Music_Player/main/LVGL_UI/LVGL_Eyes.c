@@ -1,4 +1,4 @@
-#include "Lvgl_Eyes.h"
+#include "LVGL_Eyes.h"
 
 static lv_obj_t *eye1_img;
 static lv_obj_t *eye2_img;
